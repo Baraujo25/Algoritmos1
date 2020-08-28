@@ -37,18 +37,52 @@ void simplificar(int n, int d) {
 }
 
 int ocurrencias123Repetidos(int* vector, int largo) {
-	// IMPLEMENTAR SOLUCION
-	return 0;
+	int sequence = 0;
+	int occurrences = 0;
+
+	for (int i = 0; i < largo; i++) {
+
+		if (sequence + 1 == vector[i] ) {
+			sequence++;
+		} else if (sequence > vector[i]) { 
+			sequence = 0;
+		} 
+		if (sequence == 3) {
+			occurrences++;
+			sequence = 0;
+		} 
+
+	}
+	return occurrences;
 }
 
 
 int maximoNumero(unsigned int n) {
-	// IMPLEMENTAR SOLUCION
-    return 0;
+	int* numbers = new int[n];
+
+	for (int i = 0; i < n; i++) {
+		cin >> numbers[i];
+	}
+	
+	int max = INT_MIN;
+	for (int i = 0; i < n; i++ ) {
+		max = (max < numbers[i]) ? numbers[i] : max;
+	}
+
+	return max;
 }
 
 void ordenarVecInt(int *vec, int largoVec) {
-	// IMPLEMENTAR SOLUCION
+	int* ordered = new int[largoVec];
+	if (largoVec == 0) {
+		return;
+	}
+	int min;
+	for(int i = 0; i < largoVec; i++) {
+		
+
+	}
+
 }
 
 
