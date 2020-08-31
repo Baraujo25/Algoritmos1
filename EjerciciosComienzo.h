@@ -112,6 +112,23 @@ Entrada: "Write IN C"
 Retorno: "wRITE in c"
 */
 char* invertirCase(char* palabra);
+/*
+Will convert the case of the given char in upper case
+@params:
+	letter: letter to be converted to upper case
+
+@return: upper case of the letter parameter
+*/
+
+char toUpperCase(char letter);
+/*
+Will convert the case of the given char in upper case
+@params:
+	letter: letter to be converted to upper case
+
+@return: upper case of the letter parameter
+*/
+char toLowerCase(char letter);
 
 /*
  *	EJERCICIO OPCIONAL

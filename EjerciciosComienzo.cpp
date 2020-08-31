@@ -73,24 +73,76 @@ int maximoNumero(unsigned int n) {
 }
 
 void ordenarVecInt(int *vec, int largoVec) {
-	int* ordered = new int[largoVec];
 	if (largoVec == 0) {
 		return;
 	}
-	int min;
-	for(int i = 0; i < largoVec; i++) {
+	int* ordered = new int[largoVec];
+	int hasChanges = 0;
+	do {
+		hasChanges = 0;
+		for(int i = 0; i < largoVec; i++) {
+			if (i+1 != largoVec) { 
 		
+				if (vec[i] > vec[i+1]) {
+					int aux = vec[i+1];
+					vec[i+1] = vec[i];
+					vec[i] = aux;
+					hasChanges = 1;		
+				}
+			} else {
+				if (vec[i] < vec[0] ) {
+					int aux = vec[i];
+					vec[i] = vec[0];
+					vec[0] = aux;
+					hasChanges = 1;
+				}
+				
+			}
 
-	}
+		}
 
+	} while (hasChanges);
+	
 }
 
 
 char* invertirCase(char* palabra)
 {
-	// IMPLEMENTAR SOLUCION
-	return NULL;
+	
+	//int wordLength = (int) (sizeof(palabra) / sizeof(palabra[0]));	
+	int wordLength = 28;
+
+	char* inverted = new char[wordLength];
+	cout << "Largo=" << wordLength; 
+	for (int i = 0; i < wordLength; i++) {
+		char letter = palabra[i];
+		if (letter >= 65 && letter <= 90 ) { 
+			inverted[i] = toLowerCase(letter);
+		} else if(letter >= 97 && letter <= 122 ) {
+			inverted[i] = toUpperCase(letter);
+		} else {
+			inverted[i] = letter;
+		} 
+		
+	}
+				
+	return inverted;
 }
+
+char toUpperCase(char letter) {
+	int difference = 32;
+	int upper = letter - difference;
+	int isOutOfRange = upper < 65;
+	return (!isOutOfRange) ? ((char)upper) : letter;
+} 
+
+char toLowerCase(char letter) {
+	int difference = 32;
+	int lower = letter + difference;
+	int isOutOfRange = lower > 122;
+	return (!isOutOfRange) ? ((char)lower) : letter;
+} 
+
 
 int islas(char** mapa, int col, int fil){
 	// IMPLEMENTAR SOLUCION
