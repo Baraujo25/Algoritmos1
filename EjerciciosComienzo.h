@@ -113,24 +113,7 @@ Retorno: "wRITE in c"
 */
 char* invertirCase(char* palabra);
 /*
-Will convert the case of the given char in upper case
-@params:
-	letter: letter to be converted to upper case
-
-@return: upper case of the letter parameter
-*/
-
-char toUpperCase(char letter);
-/*
-Will convert the case of the given char in upper case
-@params:
-	letter: letter to be converted to upper case
-
-@return: upper case of the letter parameter
-*/
-char toLowerCase(char letter);
-
-/*
+ *
  *	EJERCICIO OPCIONAL
 PRE:  recibe un mapa representado por una matriz, de dimensiones col x fil, en la cual 'A' representa un lugar donde hay agua, y 'T' donde hay tierra
 POS:  devuelve la cantidad de islas del mapa. Una isla es un conjunto de tierras adyacentes, ortogonal o diagonal (puede ser una sola).

@@ -105,12 +105,30 @@ void ordenarVecInt(int *vec, int largoVec) {
 	
 }
 
+/*
+Will convert the case of the given char in upper case
+@params:
+	letter: letter to be converted to upper case
+
+@return: upper case of the letter parameter
+*/
+
+char toUpperCase(char letter);
+/*
+Will convert the case of the given char in upper case
+@params:
+	letter: letter to be converted to upper case
+
+@return: upper case of the letter parameter
+*/
+char toLowerCase(char letter);
+
+int vectorLength(char* vector);
 
 char* invertirCase(char* palabra)
 {
-	
-	//int wordLength = (int) (sizeof(palabra) / sizeof(palabra[0]));	
-	int wordLength = 28;
+		
+	int wordLength = vectorLength(palabra) + 1;
 
 	char* inverted = new char[wordLength];
 	cout << "Largo=" << wordLength; 
@@ -127,6 +145,12 @@ char* invertirCase(char* palabra)
 	}
 				
 	return inverted;
+}
+
+int vectorLength(char* vector) {
+	int counter = 0; 
+	while(vector[counter++] != '\0');
+	return counter - 1;
 }
 
 char toUpperCase(char letter) {
