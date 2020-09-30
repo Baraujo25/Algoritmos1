@@ -166,11 +166,56 @@ char toLowerCase(char letter) {
 	int isOutOfRange = lower > 122;
 	return (!isOutOfRange) ? ((char)lower) : letter;
 } 
+void pintarIsla(char** mapa, int col, int fil, int c, int f);
 
+char** cloneMatrix(char** mapa, int col, int fil);
+
+char** cloneMatrix(char** mapa, int col, int fil) {
+	char matrix[col][fil];
+
+	for (int f = 0; f < fil; f++) {
+		for (int c = 0; c < col; c++) {
+			matrix[c][f] = mapa[c][f];	
+		}
+	}
+	return matrix;
+}
+
+void pintarIsla(char** mapa, int col, int fil, int c, int f) {
+
+	mapa[c][f] = 'P';
+	if (f+1 < fil && c+1 < col && mapa[c+1][f+1] == 'T') {
+		pintarIsla(mapa, col, fil, c+1, f+1);
+	}  if (f-1 >= 0 && c-1 >= 0 && mapa[c-1][f-1]== 'T') {
+		pintarIsla(mapa, col, fil, c-1, f-1);
+	}  if (f-1 >= 0 && mapa[c][f-1] == 'T') {
+		pintarIsla(mapa, col, fil, c, f-1);
+	}  if (c-1 >= 0 && mapa[f][c-1] == 'T') {
+		pintarIsla(mapa, col, fil, c-1, f);
+	}  if (c+1 < col && mapa[c+1][f] == 'T') {
+		pintarIsla(mapa, col, fil, c+1, f);
+	}  if (f+1 < fil && mapa[c][f+1]== 'T') {
+		pintarIsla(mapa, col, fil, c, f+1);
+	}  if (f+1 < fil && c-1 >= 0 && mapa[c-1][f+1] == 'T') {
+		pintarIsla(mapa, col, fil, c-1, f+1);
+	}  if (f-1 >= 0 && c+1 < col && mapa[c+1][f-1] == 'T') {
+		pintarIsla(mapa, col, fil, c+1, f-1);
+	} 
+
+} 
 
 int islas(char** mapa, int col, int fil){
-	// IMPLEMENTAR SOLUCION
-    return 0;
+	int result = 0;
+	char** copy_map = cloneMatrix(mapa, col, fil);
+	for (int f = 0; f < fil; f++) {
+		for (int c = 0; c < col; c++) {
+			if (copy_map[c][f] == 'T') {
+				result++;
+				pintarIsla(copy_map, col, fil, c, f);
+			}
+		}
+	} 
+  return result;
 }
 
 unsigned int ocurrenciasSubstring(char **vecStr, int largoVecStr, char *substr)
